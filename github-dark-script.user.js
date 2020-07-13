@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        GitHub Dark Script
-// @version     2.5.9
+// @version     2.5.10
 // @description GitHub Dark in userscript form, with a settings panel
 // @license     MIT
 // @author      StylishThemes
@@ -374,11 +374,11 @@
 
   function fetchAndApplyStyle() {
     if (debug) {
-      console.info(`Fetching ${root}github-dark.css`);
+      console.info(`Fetching ${root}github-dark.user.css`);
     }
     GM.xmlHttpRequest({
       method: "GET",
-      url: `${root}github-dark.css`,
+      url: `${root}github-dark.user.css`,
       onload: response => {
         data.rawCss = response.responseText;
         processStyle();
@@ -397,7 +397,7 @@
     if (data[`last${group}`] === name && data[`css${group}`] !== "") {
       return applyTheme(name, group);
     }
-    const themeUrl = `${root}${themesXref[group].folder}${themes[group][name]}.min.css`;
+    const themeUrl = `${root}src/${themesXref[group].folder}${themes[group][name]}.css`;
     if (debug) {
       console.info(`Fetching ${group} ${name} theme`, themeUrl);
     }
