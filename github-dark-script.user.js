@@ -48,7 +48,7 @@
     keyboardDelay = 1000,
 
     // base urls to fetch style and package.json
-    root = "https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/master/",
+    root = "https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/v2.1.36/",
 
     defaults = {
       attach: "scroll",
@@ -374,11 +374,11 @@
 
   function fetchAndApplyStyle() {
     if (debug) {
-      console.info(`Fetching ${root}github-dark.user.css`);
+      console.info(`Fetching ${root}github-dark.css`);
     }
     GM.xmlHttpRequest({
       method: "GET",
-      url: `${root}github-dark.user.css`,
+      url: `${root}github-dark.css`,
       onload: response => {
         data.rawCss = response.responseText;
         processStyle();
@@ -397,7 +397,7 @@
     if (data[`last${group}`] === name && data[`css${group}`] !== "") {
       return applyTheme(name, group);
     }
-    const themeUrl = `${root}src/${themesXref[group].folder}${themes[group][name]}.css`;
+    const themeUrl = `${root}${themesXref[group].folder}${themes[group][name]}.min.css`;
     if (debug) {
       console.info(`Fetching ${group} ${name} theme`, themeUrl);
     }
