@@ -48,7 +48,7 @@
     keyboardDelay = 1000,
 
     // base urls to fetch style and package.json
-    root = "https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/v2.1.36/",
+    root = "https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/v4.2.52/",
 
     defaults = {
       attach: "scroll",
@@ -374,7 +374,7 @@
 
   function fetchAndApplyStyle() {
     if (debug) {
-      console.info(`Fetching ${root}github-dark.css`);
+      console.info(`Fetching ${root}github-dark.user.css`);
     }
     GM.xmlHttpRequest({
       method: "GET",
